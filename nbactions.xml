@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+	<action>
+		<actionName>run</actionName>
+		<packagings>
+			<packaging>jar</packaging>
+		</packagings>
+		<goals>
+			<goal>spring-boot:run</goal>
+		</goals>
+		<properties>
+			<spring-boot.run.jvmArguments>-noverify -XX:TieredStopAtLevel=1</spring-boot.run.jvmArguments>
+			<Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
+			<Env.SPRING_DEVTOOLS_RESTART_TRIGGERFILE>.nbRestartTrigger</Env.SPRING_DEVTOOLS_RESTART_TRIGGERFILE>
+		</properties>
+	</action>
+	<action>
+		<actionName>debug</actionName>
+		<packagings>
+			<packaging>jar</packaging>
+		</packagings>
+		<goals>
+			<goal>spring-boot:run</goal>
+		</goals>
+		<properties>
+			<jpda.listen>true</jpda.listen>
+			<spring-boot.run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -noverify -XX:TieredStopAtLevel=1</spring-boot.run.jvmArguments>
+			<Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
+			<Env.SPRING_DEVTOOLS_RESTART_TRIGGERFILE>.nbRestartTrigger</Env.SPRING_DEVTOOLS_RESTART_TRIGGERFILE>
+		</properties>
+	</action>
+	<action>
+		<actionName>CUSTOM-STJS Watch</actionName>
+		<displayName>STJS Watch</displayName>
+		<goals>
+			<goal>fizzed-watcher:run</goal>
+		</goals>
+	</action>
+	<action>
+		<actionName>CUSTOM-STJS Generate</actionName>
+		<displayName>STJS Generate</displayName>
+		<goals>
+			<goal>stjs:generate</goal>
+		</goals>
+	</action>
+	<action>
+		<actionName>CUSTOM-Sortpom</actionName>
+		<displayName>Sortpom</displayName>
+		<goals>
+			<goal>com.github.ekryd.sortpom:sortpom-maven-plugin:sort</goal>
+		</goals>
+		<properties>
+			<sort.keepBlankLines>true</sort.keepBlankLines>
+			<sort.nrOfIndentSpace>-1</sort.nrOfIndentSpace>
+		</properties>
+	</action>
+	<action>
+		<actionName>CUSTOM-FindBugs</actionName>
+		<displayName>FindBugs</displayName>
+		<goals>
+			<goal>org.codehaus.mojo:findbugs-maven-plugin:check</goal>
+		</goals>
+	</action>		
+</actions>
